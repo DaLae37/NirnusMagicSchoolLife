@@ -150,6 +150,7 @@
     <ClCompile Include="Dialogue.cpp" />
     <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="mainScene.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="startScene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -163,6 +164,7 @@
     <ClInclude Include="Dialogue.h" />
     <ClInclude Include="gameScene.h" />
     <ClInclude Include="mainScene.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="startScene.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="tutorialScene.h" />

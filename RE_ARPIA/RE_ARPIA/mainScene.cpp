@@ -2,7 +2,7 @@
 #include "mainScene.h"
 
 mainScene::mainScene(){
-
+	
 }
 
 mainScene::~mainScene(){
