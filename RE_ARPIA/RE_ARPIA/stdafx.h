@@ -3,6 +3,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include "Windows.h"
 
+#include <iostream>
 #include <cassert>
 #include <cstdio>
 #include <limits>
@@ -28,3 +29,6 @@
 #include <d3dx9core.h>
 
 #include "fmod.hpp"
+
+#include "DataManager.h"
+#include "PopUp.h"

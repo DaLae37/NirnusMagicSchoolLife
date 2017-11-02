@@ -33,9 +33,6 @@
     <ClCompile Include="mainScene.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="tutorialScene.cpp">
-      <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="gameScene.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
@@ -52,6 +49,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="tutorialScene.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="PopUp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -78,6 +81,9 @@
       <Filter>헤더 파일\Global</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PopUp.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

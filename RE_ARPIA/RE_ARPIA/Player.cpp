@@ -3,7 +3,7 @@
 #include <iostream>
 Player::Player() : gravity(0.0f), isJump(false)
 {
-	player = new ZeroSprite("Resource/Player/1.png");
+	player = new ZeroSprite("Resource/Player/male.png");
 	player->SetScale(0.5f, 0.5f);
 	spriteList.push_back(player);
 }
