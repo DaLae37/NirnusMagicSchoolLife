@@ -9,6 +9,7 @@ DataManager::DataManager()
 
 DataManager::~DataManager()
 {
+
 }
 
 void DataManager::Save() {
@@ -27,11 +28,17 @@ void DataManager::Load() {
 }
 
 void DataManager::Reset() {
+	data->currentScene = 0;
+
 	data->isMale = false;
 	data->isSettingGender = false;
 
 	data->name = "";
 	data->isSettingName = false;
+
+	data->currentFloor = 1;
+	data->gameS_posX = 0;
+	data->gameS_posY = 0;
 }
 
 DataManager* DataManager::instance() {

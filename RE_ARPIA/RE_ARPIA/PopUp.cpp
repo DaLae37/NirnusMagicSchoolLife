@@ -10,7 +10,7 @@ PopUp::PopUp()
 	isYes = false;
 	isSelected = false;
 	//이미지 위치 조정
-	popUP->SetPos((1280 - popUP->Width()) / 2, (720 - popUP->Height()) / 2);
+	popUP->SetPos((WINDOW_WIDTH - popUP->Width()) / 2, (WINDOW_HEIGHT - popUP->Height()) / 2);
 	yes->SetPos(popUP->Pos().x, popUP->Pos().y + popUP->Height() - yes->Height());
 	no->SetPos(popUP->Pos().x + popUP->Width() - no->Width(), popUP->Pos().y + popUP->Height() - no->Height());
 }

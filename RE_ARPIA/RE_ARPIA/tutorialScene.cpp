@@ -18,7 +18,7 @@ void tutorialScene::Update(float eTime) {
 	if (!DataMgr->data->isSettingGender) {
 		GenderPanel->Update(eTime);
 	}
-	if (DataMgr->data->isSettingGender && !DataMgr->data->isSettingName) {
+	if (DataMgr->data->isSettingGender && !DataMgr->data->isSettingName) {		
 		NamePanel->Update(eTime);
 	}
 }
@@ -63,7 +63,7 @@ void SettingGenderPanel::Update(float eTime) {
 			if (PoPUPMgr->isYes) {
 				DataMgr->data->isMale = isMale;
 				DataMgr->data->isSettingGender = true;
-				DataMgr->Save();
+				DataMgr->Save();	
 				//Yes가 선택되었으면 데이터를 저장시키고 초기화
 			}
 			if (!PoPUPMgr->isYes) {
@@ -86,7 +86,7 @@ void SettingGenderPanel::Render() {
 }
 
 SettingNamePanel::SettingNamePanel() {
-
+	
 }
 
 SettingNamePanel::~SettingNamePanel() {
@@ -95,9 +95,9 @@ SettingNamePanel::~SettingNamePanel() {
 
 void SettingNamePanel::Update(float eTime) {
 	ZeroIScene::Update(eTime);
-	cout << "rhr";
 }
 
 void SettingNamePanel::Render() {
 	ZeroIScene::Render();
+
 }

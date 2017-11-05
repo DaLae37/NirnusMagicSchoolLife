@@ -3,14 +3,15 @@
 #include <Zero.h>
 #include "ZeroConsole.h"
 #include "tutorialScene.h"
+#include "gameScene.h"
 
 //이 변수를 주석처리하면 콘솔창 안뜬다.
 ZeroConsole g_Console;
 
 INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 {
-	int WindowWidth = 1280;
-	int WindowHeight = 720;
+	int WindowWidth = WINDOW_WIDTH;
+	int WindowHeight = WINDOW_HEIGHT;
 
 	ZeroApp->RegisterWindowSize(WindowWidth, WindowHeight);
 	WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, ZeroApp->MsgProc, 0L, 0L,
@@ -22,20 +23,19 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 
 	// WS_EX_TOPMOST | WS_POPUP :: 전체화면 모드
 	// WS_OVERLAPPEDWINDOW		:: 창화면 모드
-	HWND hWnd = CreateWindow(L"Engine2D", L"프로그램명",
-		WS_OVERLAPPEDWINDOW, 100, 0, WindowWidth, WindowHeight,
+	HWND hWnd = CreateWindow(L"Engine2D", L"니르너스 마법학교 생활",
+		WS_OVERLAPPED, 100, 0, WindowWidth, WindowHeight,
 		GetDesktopWindow(), NULL, wc.hInstance, NULL);
 
 	ZeroApp->SetHwnd(hWnd);
 
 	if (SUCCEEDED(ZeroApp->InitD3D(hWnd, false))) //전체화면을 하려면 true로
 	{
-
 		ShowWindow(hWnd, SW_SHOWDEFAULT);
 		UpdateWindow(hWnd);
 
 		//여기서 처음 시작하는 Scene을 정한다
-		ZeroSceneMgr->ChangeScene(new tutorialScene());
+		ZeroSceneMgr->ChangeScene(new gameScene());
 
 
 		MSG msg;
@@ -50,6 +50,7 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 			else
 				ZeroApp->Render();
 		}
+
 	}
 	//종료
 	ZeroSceneMgr->Clear();

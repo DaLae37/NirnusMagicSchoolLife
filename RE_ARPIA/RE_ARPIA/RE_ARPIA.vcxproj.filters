@@ -25,15 +25,36 @@
     <Filter Include="헤더 파일\Global">
       <UniqueIdentifier>{6cf2f79d-979d-4d9f-b2c4-a5b3c415001d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Scene\gameScene">
+      <UniqueIdentifier>{16c39234-780a-41c6-8050-387ce7a0aff5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Scene\gameScene">
+      <UniqueIdentifier>{321764dc-3a6a-4cca-b4ba-f325af9382ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Scene\gameScene\class">
+      <UniqueIdentifier>{b3c81806-1540-40df-9ffd-2cfb4f174677}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Scene\gameScene\toilet">
+      <UniqueIdentifier>{49c292cb-fbdf-40bf-a397-fcf8dd65389f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Scene\gameScene\office">
+      <UniqueIdentifier>{157ae5ae-76bd-4117-84f8-a43a1d0585b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Scene\gameScene\class">
+      <UniqueIdentifier>{b240e73c-346e-4eac-90bc-928a635311b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Scene\gameScene\toilet">
+      <UniqueIdentifier>{e3f851f0-4a5d-4c77-afb5-28ae55f880a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Scene\gameScene\office">
+      <UniqueIdentifier>{c381ff52-0711-4540-bb7a-ce2addf4da1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="startScene.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
     <ClCompile Include="mainScene.cpp">
-      <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="gameScene.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
     <ClCompile Include="DataManager.cpp">
@@ -48,13 +69,46 @@
     <ClCompile Include="WinMain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="tutorialScene.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
     <ClCompile Include="PopUp.cpp">
+      <Filter>소스 파일\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene.cpp">
+      <Filter>소스 파일\Scene\gameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_class1.cpp">
+      <Filter>소스 파일\Scene\gameScene\class</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_class2.cpp">
+      <Filter>소스 파일\Scene\gameScene\class</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_class3.cpp">
+      <Filter>소스 파일\Scene\gameScene\class</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_office.cpp">
+      <Filter>소스 파일\Scene\gameScene\office</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_maleToilet1.cpp">
+      <Filter>소스 파일\Scene\gameScene\toilet</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_maleToilet2.cpp">
+      <Filter>소스 파일\Scene\gameScene\toilet</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_maleToilet3.cpp">
+      <Filter>소스 파일\Scene\gameScene\toilet</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_femaleToilet1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_femaleToilet2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_femaleToilet3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,9 +122,6 @@
     <ClInclude Include="tutorialScene.h">
       <Filter>헤더 파일\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="gameScene.h">
-      <Filter>헤더 파일\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="DataManager.h">
       <Filter>헤더 파일\Global</Filter>
     </ClInclude>
@@ -81,9 +132,42 @@
       <Filter>헤더 파일\Global</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Global</Filter>
     </ClInclude>
     <ClInclude Include="PopUp.h">
+      <Filter>헤더 파일\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene.h">
+      <Filter>헤더 파일\Scene\gameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_class1.h">
+      <Filter>헤더 파일\Scene\gameScene\class</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_class2.h">
+      <Filter>헤더 파일\Scene\gameScene\class</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_class3.h">
+      <Filter>헤더 파일\Scene\gameScene\class</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_office.h">
+      <Filter>헤더 파일\Scene\gameScene\office</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_maleToilet1.h">
+      <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_maleToilet2.h">
+      <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_maleToilet3.h">
+      <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_femaleToilet1.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_femaleToilet2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_femaleToilet3.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
