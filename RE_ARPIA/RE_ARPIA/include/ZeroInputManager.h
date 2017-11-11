@@ -33,6 +33,7 @@ public:
 
 	void KeyState();
 	int GetKey(int _key);
+	bool AnyKeyDown();
 	void LockKey(int _key);
 	void UnlockKey(int _key);
 

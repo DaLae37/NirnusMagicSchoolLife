@@ -1,12 +1,13 @@
 #include "stdafx.h"
 #include "Player.h"
 #include <iostream>
-Player::Player() : gravity(0.0f), isJump(false), isWalk(false)
+Player::Player() : groundPosY(768.0f), gravity(0.0f), isJump(false), isWalk(false), isGround(false), speed(300)
 {
 	statue = PlayerStatues::IDLE; //상태 지정
 	
-	playerWalk = new ZeroAnimation(1.3f);
-	if (DataMgr->data->isMale) {
+	playerWalk = new ZeroAnimation(6);
+	
+	if (DataMgr->data.isMale) {
 		playerStop = new ZeroSprite("Resource/Player/male_stop.png");
 		playerJump = new ZeroSprite("Resource/Player/male_jump.png");
 		for (int i = 1; i <= 4; i++)
@@ -32,6 +33,11 @@ Player::~Player()
 {
 }
 
+Player* Player::instance() {
+	static Player pl;
+	return &pl;
+}
+
 void Player::Update(float eTime) {
 	ZeroIScene::Update(eTime);
 	Move(eTime);
@@ -52,7 +58,7 @@ void Player::Render() {
 void Player::Move(float eTime) {
 	playerWalk->Update(eTime);
 	if (ZeroInputMgr->GetKey(VK_RIGHT)) {
-		this->AddPosX(200 * eTime);
+		this->AddPosX(speed * eTime);
 
 		if (!isJump)
 			statue = PlayerStatues::RIGHT_MOVE;
@@ -62,7 +68,7 @@ void Player::Move(float eTime) {
 			this->SetScale(-1, 1);
 	}
 	else if (ZeroInputMgr->GetKey(VK_LEFT)) {
-		this->AddPosX(-200 * eTime);
+		this->AddPosX(-speed * eTime);
 
 		if(!isJump)
 			statue = PlayerStatues::LEFT_MOVE;
@@ -74,7 +80,7 @@ void Player::Move(float eTime) {
 	else {
 		isWalk = false;
 	}
-	if (ZeroInputMgr->GetKey(VK_MENU) && !isJump) {
+	if (ZeroInputMgr->GetKey(VK_MENU) && !isJump && isGround) {
 		isJump = true;
 		statue = PlayerStatues::JUMP;
 	}
@@ -84,16 +90,26 @@ void Player::Move(float eTime) {
 }
 
 void Player::Physics(float eTime) {
-	gravity += 9.8f * 1.3f;
+	gravity += 9.8f * 1.5f;
 	this->AddPosY(gravity * eTime);
 	if (isJump) {
-		this->AddPosY(-500 * eTime);
+		this->AddPosY(-600 * eTime);
 	}
-	if (this->Pos().y > 500) {
-		this->Pos().y = 500;
+	if (this->Pos().y > groundPosY - playerStop->Height() - 100) {
+		this->Pos().y = groundPosY - playerStop->Height() - 100; //100은 바닥 위치 고려
 		gravity = 0;
 		isJump = false;
 	}
+	if (this->Pos().y == groundPosY - playerStop->Height() - 100) {
+		isGround = true;
+	}
+	else {
+		isGround = false;
+	}
+}
+
+void Player::SetGround(float posY) {
+	groundPosY = posY;
 }
 
 void Player::SetObjectPos() {

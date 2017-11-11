@@ -18,9 +18,6 @@ protected:
 	// 객체의 위치를 나타내는 값이다.
 	ZeroVec m_vPos;
 
-	// 객체의 절대 위치를 나타내는 값이다.
-	ZeroVec m_vGlobalPos;
-	
 	// 객체가 카메라 위치에 계산하여 보정되는 위치값이다.
 	// 카메라 기능이 꺼져있다면 m_vPos값과 같다.
 	ZeroVec m_vWorldPos;
@@ -56,17 +53,9 @@ protected:
 	// 보통 이미지의 가로값을 나타낸다.
 	float m_fWidth;
 
-	// 객체의 스케일링된 가로 픽셀값을 나타내는 값이다.
-	// Width * Scale.x 의 값을 반환하며, 직접 수정하지 않는 것이 좋다.
-	float m_fScaledWidth;
-
 	// 객체의 세로 픽셀값을 나타내는 값이다.
 	// 보통 이미지의 세로값을 나타낸다.
 	float m_fHeight;
-
-	// 객체의 스케일링된 세로 픽셀값을 나타내는 값이다.
-	// Height * Scale.y 의 값을 반환하며, 직접 수정하지 않는 것이 좋다.
-	float m_fScaledHeight;
 
 	// 객체를 지울것인지 진위여부를 나타내는 값이다.
 	// 만일 true이면 이 객체는 다음 Update()함수가 불려질때 지워질 것이다.
@@ -78,6 +67,9 @@ protected:
 
 	// 본 객체의 Update함수를 자동으로 돌릴것인지 여부를 나타낸다.
 	bool m_bUpdate;
+
+	// 본 객체의 
+	bool m_bCenterAligned;
 
 	// 본 객체를 갖고있는 객체의 주소를 가지고 있다.
 	ZeroIScene* m_pParent;
@@ -117,6 +109,8 @@ public:
 	// 만일 본 객체에 p가 존재하지 않는다면 아무 작업도 수행하지 않는다.
 	void PopScene(ZeroIScene* _scene, bool isErase = true);
 
+	void SetCenter(bool m_bCenterAligned);
+
 	// 본 객체의 하위객체중 p가 존재하는지 확인한다.
 	// 만일 존재한다면 true를 반환한다.
 	bool IsExistScene(ZeroIScene* _scene);
@@ -129,21 +123,8 @@ public:
 	// 만일 안에 있다면 true를 반환한다.
 	bool IsOverlapped(ZeroVec pos);
 
-	//대상 ZeroIScene과 OBB 충돌체크를 진행한다.
-	//직접 사용하기보단 IsOverlapped를 사용하기를 추천한다.
-	//참고 : http://blog.naver.com/aasr4r4/130185736751
-	bool CheckOBBCollision(ZeroIScene* _scene);
-
 private:
 	bool IsPosInRect(ZeroRect rect, ZeroVec pos);
-
-	void UpdateScaledWH()
-	{	
-		m_fScaledWidth = m_fWidth * m_vScale.x;
-		m_fScaledHeight = m_fHeight * m_vScale.y;
-	}
-
-	void UpdateTransform();
 
 public:
 	// 객체의 위치값을 반환한다.
@@ -153,36 +134,25 @@ public:
 	ZeroVec Pos() const {
 		return m_vPos;
 	}
-	// 객체의 pivot에 따른 위치값을 반환한다.
-	// 예) Pos(0.5f, 0.5f)는 객체의 중심위치값을 반환한다.
-	ZeroVec Pos(float pivotX, float pivotY) const {
-		return m_vPos + ZeroVec(m_fScaledWidth * pivotX, 
-								m_fScaledHeight * pivotY);
-	}
-
 	// 객체의 위치값을 pos값으로 고정시킨다.
 	void SetPos(ZeroVec pos) {
 		m_vPos = pos;
-		UpdateTransform();
 	}
 	// 객체의 위치값을 pos값으로 고정시킨다.
 	template <typename T, typename U>
 	void SetPos(T x, U y) {
 		m_vPos.x = static_cast<float>(x);
 		m_vPos.y = static_cast<float>(y);
-		UpdateTransform();
 	}
 	// 객체의 위치값을 x값으로 고정시킨다.
 	template <typename T>
 	void SetPosX(T pos) {
 		m_vPos.x = static_cast<float>(pos);
-		UpdateTransform();
 	}
 	// 객체의 위치값을 y값으로 고정시킨다.
 	template <typename T>
 	void SetPosY(T pos) {
 		m_vPos.y = static_cast<float>(pos);
-		UpdateTransform();
 	}
 
 	// 객체의 위치값에 x, y만큼 각각 더한다.
@@ -191,26 +161,18 @@ public:
 	void AddPos(T x, U y) {
 		m_vPos.x += static_cast<float>(x);
 		m_vPos.y += static_cast<float>(y);
-		UpdateTransform();
 	}
 
 	// 객체의 위치값중 x값에 x만큼 더한다.
 	template <typename T>
 	void AddPosX(T x) {
 		m_vPos.x += static_cast<float>(x);
-		UpdateTransform();
 	}
 
 	// 객체의 위치값중 y값에 y만큼 더한다.
 	template <typename T>
 	void AddPosY(T y) {
 		m_vPos.y += static_cast<float>(y);
-		UpdateTransform();
-	}
-
-	// 객체의 절대 위치값을 반환한다.
-	ZeroVec GlobalPos() {
-		return m_vGlobalPos;
 	}
 
 	// 객체의 월드위치값을 반환한다.
@@ -255,95 +217,88 @@ public:
 		m_vWorldPos.y += static_cast<float>(y);
 	}
 
-	// 객체의 스케일값을 반환한다.
+	// 객체의 크기값을 반환한다.
 	ZeroVec Scale() const {
 		return m_vScale;
 	}
 
-	// 객체의 스케일값을 scale값으로 고정시킨다.
+	// 객체의 크기값을 scale값으로 고정시킨다.
 	void SetScale(ZeroVec scale) {
 		m_vScale = scale;
-		UpdateScaledWH();
 	}
 
 	template <typename T, typename U>
-	// 객체의 스케일값을 x,y값으로 고정시킨다.
+	// 객체의 크기값을 x,y값으로 고정시킨다.
 	void SetScale(T x, U y) {
 		m_vScale.x = static_cast<float>(x);
 		m_vScale.y = static_cast<float>(y);
-		UpdateScaledWH();
 	}
 
 	template <typename T>
-	// 객체의 스케일값을 scale값으로 고정시킨다.
+	// 객체의 크기값을 scale값으로 고정시킨다.
 	void SetScale(T scale) {
 		m_vScale.x = static_cast<float>(scale);
 		m_vScale.y = static_cast<float>(scale);
-		UpdateScaledWH();
 	}
 
 	template <typename T, typename U>
-	// 객체의 스케일값에 x,y만큼 각각 더한다.
+	// 객체의 크기값에 x,y만큼 각각 더한다.
 	void AddScale(T x, U y) {
 		m_vScale.x += static_cast<float>(x);
 		m_vScale.y += static_cast<float>(y);
-		UpdateScaledWH();
 	}
 
 	template <typename T>
-	// 객체의 스케일값에 scale만큼 각각 더한다.
+	// 객체의 크기값에 scale만큼 각각 더한다.
 	void AddScale(T scale) {
 		m_vScale.x += static_cast<float>(scale);
 		m_vScale.y += static_cast<float>(scale);
-		UpdateScaledWH();
 	}
 
 	template <typename T>
-	// 객체의 스케일값중 x값에 x만큼 더한다.
+	// 객체의 크기값중 x값에 x만큼 더한다.
 	void AddScaleX(T x) {
 		m_vScale.x += static_cast<float>(x);
-		m_fScaledWidth = m_fWidth * m_vScale.x;
 	}
 
 	template <typename T>
-	// 객체의 스케일값중 y값에 y만큼 더한다.
+	// 객체의 크기값중 y값에 y만큼 더한다.
 	void AddScaleY(T y) {
 		m_vScale.y += static_cast<float>(y);
-		m_fScaledHeight = m_fHeight * m_vScale.y;
 	}
 
-	// 객체의 스케일중심값을 반환한다.
+	// 객체의 크기중심값을 반환한다.
 	ZeroVec ScalingCenter() const {
 		return m_vScalingCenter;
 	}
 
-	// 객체의 스케일중심값을 scalingcenter값으로 고정시킨다.
+	// 객체의 크기중심값을 scalingcenter값으로 고정시킨다.
 	void SetScalingCenter(ZeroVec scalingcenter) {
 		m_vScalingCenter = scalingcenter;
 	}
 
 	template <typename T, typename U>
-	// 객체의 스케일중심값을 x,y값으로 고정시킨다.
+	// 객체의 크기중심값을 x,y값으로 고정시킨다.
 	void SetScalingCenter(T x, U y) {
 		m_vScalingCenter.x = static_cast<float>(x);
 		m_vScalingCenter.y = static_cast<float>(y);
 	}
 
 	template <typename T, typename U>
-	// 객체의 스케일중심값에 x,y만큼 각각 더한다.
+	// 객체의 크기중심값에 x,y만큼 각각 더한다.
 	void AddScalingCenter(T x, U y) {
 		m_vScalingCenter.x += static_cast<float>(x);
 		m_vScalingCenter.y += static_cast<float>(y);
 	}
 
 	template <typename T>
-	// 객체의 스케일중심값중 x값에 x만큼 더한다.
+	// 객체의 크기중심값중 x값에 x만큼 더한다.
 	void AddScalingCenterX(T x) {
 		m_vScalingCenter.x += static_cast<float>(x);
 	}
 
 	template <typename T>
-	// 객체의 스케일중심값중 y값에 y만큼 더한다.
+	// 객체의 크기중심값중 y값에 y만큼 더한다.
 	void AddScalingCenterY(T y) {
 		m_vScalingCenter.y += static_cast<float>(y);
 	}
@@ -388,9 +343,6 @@ public:
 	float Rot() const {
 		return m_fRot;
 	}
-
-	// 객체의 절대 회전각도값을 반환한다.
-	float GlobalRot() const;
 
 	template <typename T>
 	// 객체의 회전각도값을 rot값으로 고정시킨다.
@@ -467,17 +419,11 @@ public:
 		return m_fWidth;
 	}
 
-	// 본 객체의 스케일링된 가로 픽셀 길이를 반환한다.
-	float ScaledWidth() const {
-		return m_fScaledWidth;
-	}
-
 	template <typename T>
 	// 본 객체의 가로 길이를 설정한다.
 	// 왠만해선 사용하지 말자.
 	void SetWidth(T width) {
 		m_fWidth = static_cast<float>(width);
-		m_fScaledWidth = m_fWidth * m_vScale.x;
 	}
 
 	// 본 객체의 세로 픽셀 길이를 반환한다.
@@ -485,17 +431,11 @@ public:
 		return m_fHeight;
 	}
 
-	// 본 객체의 스케일링된 세로 픽셀 길이를 반환한다.
-	float ScaledHeight() const {
-		return m_fScaledHeight;
-	}
-
 	template <typename T>
 	// 본 객체의 세로 길이를 설정한다.
 	// 왠만해선 사용하지 말자.
 	void SetHeight(T height) {
 		m_fHeight = static_cast<float>(height);
-		m_fScaledHeight = m_fHeight * m_vScale.y;
 	}
 
 	// 본 객체의 상위 객체의 주소값을 반환한다.

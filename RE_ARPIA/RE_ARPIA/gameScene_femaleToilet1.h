@@ -1,12 +1,21 @@
 #pragma once
 #include "ZeroIScene.h"
-class gameScene_femaleToilet1 :
-	public ZeroIScene
+#include "ZeroSprite.h"
+#include "ZeroInputManager.h"
+#include "ZeroSceneManager.h"
+
+#include "gameScene.h"
+#include "gameScene_dungeon.h"
+#include "Player.h"
+class gameScene_femaleToilet1 : public ZeroIScene
 {
 public:
 	gameScene_femaleToilet1();
 	~gameScene_femaleToilet1();
 	void Update(float eTime);
 	void Render();
+
+	ZeroSprite *portal1;
+	ZeroSprite *portal2;
 };
 

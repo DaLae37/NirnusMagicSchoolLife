@@ -34,8 +34,19 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 		ShowWindow(hWnd, SW_SHOWDEFAULT);
 		UpdateWindow(hWnd);
 
+		DataMgr->Reset();
+		DataMgr->Save();
+		
 		//여기서 처음 시작하는 Scene을 정한다
-		ZeroSceneMgr->ChangeScene(new gameScene());
+		if (!DataMgr->data.isSettingGender || !DataMgr->data.isSettingName) 
+			ZeroSceneMgr->ChangeScene(new tutorialScene());
+		else {
+			switch (DataMgr->data.currentScene) {
+			case 0:
+				ZeroSceneMgr->ChangeScene(new gameScene());
+				break;
+			}
+		}
 
 
 		MSG msg;

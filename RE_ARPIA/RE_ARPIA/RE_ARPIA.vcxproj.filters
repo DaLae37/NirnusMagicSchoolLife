@@ -49,6 +49,9 @@
     <Filter Include="헤더 파일\Scene\gameScene\office">
       <UniqueIdentifier>{c381ff52-0711-4540-bb7a-ce2addf4da1e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Scene\gameScene\dungeon">
+      <UniqueIdentifier>{e9c8be9c-f736-4225-9908-162cf00a345c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="startScene.cpp">
@@ -103,12 +106,15 @@
       <Filter>소스 파일\Scene\gameScene\toilet</Filter>
     </ClCompile>
     <ClCompile Include="gameScene_femaleToilet1.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Scene\gameScene\toilet</Filter>
     </ClCompile>
     <ClCompile Include="gameScene_femaleToilet2.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Scene\gameScene\toilet</Filter>
     </ClCompile>
     <ClCompile Include="gameScene_femaleToilet3.cpp">
+      <Filter>소스 파일\Scene\gameScene\toilet</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene_dungeon.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -162,12 +168,15 @@
       <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
     </ClInclude>
     <ClInclude Include="gameScene_femaleToilet1.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
     </ClInclude>
     <ClInclude Include="gameScene_femaleToilet2.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
     </ClInclude>
     <ClInclude Include="gameScene_femaleToilet3.h">
+      <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_dungeon.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

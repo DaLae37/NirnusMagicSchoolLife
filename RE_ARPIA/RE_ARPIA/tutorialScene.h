@@ -2,7 +2,10 @@
 #include "ZeroIScene.h"
 #include "ZeroSprite.h"
 #include "ZeroInputManager.h"
+#include "ZeroFont.h"
+#include "ZeroSceneManager.h"
 
+#include "gameScene.h"
 class SettingGenderPanel : public ZeroIScene {
 public:
 	SettingGenderPanel();
@@ -21,6 +24,9 @@ public:
 	~SettingNamePanel();
 	void Update(float eTime);
 	void Render();
+
+	ZeroFont *nameFont;
+	string tmpName;
 };
 
 class tutorialScene : public ZeroIScene

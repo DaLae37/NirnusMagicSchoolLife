@@ -2,7 +2,7 @@
 
 #include "ZeroVec.h"
 
-struct ZeroRect : public RECT {
+class ZeroRect : public RECT {
 public:
 	ZeroRect() {
 		Zero();
@@ -40,22 +40,10 @@ public:
 	}
 
 	void FlipH() {
-		left = -left;
-		right = -right;
+		Set(-right, top, -left, bottom);
 	}
 
 	void FlipV() {
-		top = -top;
-		bottom = -bottom;
-	}
-
-	LONG Width()
-	{
-		return abs(right - left);
-	}
-
-	LONG Height()
-	{
-		return abs(bottom - top);
+		Set(left, -bottom, right, -top);
 	}
 };

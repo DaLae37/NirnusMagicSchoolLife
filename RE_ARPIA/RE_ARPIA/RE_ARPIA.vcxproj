@@ -152,6 +152,7 @@
     <ClCompile Include="gameScene_class1.cpp" />
     <ClCompile Include="gameScene_class2.cpp" />
     <ClCompile Include="gameScene_class3.cpp" />
+    <ClCompile Include="gameScene_dungeon.cpp" />
     <ClCompile Include="gameScene_femaleToilet1.cpp" />
     <ClCompile Include="gameScene_femaleToilet2.cpp" />
     <ClCompile Include="gameScene_femaleToilet3.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="gameScene_class1.h" />
     <ClInclude Include="gameScene_class2.h" />
     <ClInclude Include="gameScene_class3.h" />
+    <ClInclude Include="gameScene_dungeon.h" />
     <ClInclude Include="gameScene_femaleToilet1.h" />
     <ClInclude Include="gameScene_femaleToilet2.h" />
     <ClInclude Include="gameScene_femaleToilet3.h" />
