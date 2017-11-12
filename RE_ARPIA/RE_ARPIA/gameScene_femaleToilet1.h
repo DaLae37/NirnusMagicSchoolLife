@@ -3,6 +3,7 @@
 #include "ZeroSprite.h"
 #include "ZeroInputManager.h"
 #include "ZeroSceneManager.h"
+#include "ZeroCameraManager.h"
 
 #include "gameScene.h"
 #include "gameScene_dungeon.h"
@@ -14,8 +15,12 @@ public:
 	~gameScene_femaleToilet1();
 	void Update(float eTime);
 	void Render();
+	void SetCameraPos();
+	void PlayerUpdate(float eTime);
+
+	ZeroSprite *background;
+	ZeroSprite *floor;
 
 	ZeroSprite *portal1;
 	ZeroSprite *portal2;
 };
-

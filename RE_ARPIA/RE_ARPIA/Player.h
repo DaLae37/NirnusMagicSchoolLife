@@ -33,6 +33,7 @@ public:
 	void Physics(float eTime); //중력 등 물리 관련 함수
 	void SetObjectPos(); //스프라이트의 위치를 클래스의 값과 맞춰줌
 	void SetGround(float posY); //캐릭터의 그라운드 위치를 설정 예) 층이 바뀔 때
+	float GetGround(); //캐릭터의 그라운드 위치를 가져옴
 
 	PlayerStatues statue;
 

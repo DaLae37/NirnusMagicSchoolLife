@@ -4,6 +4,7 @@
 gameScene::gameScene()
 {
 	currentFloor = 1;
+	player->SetGround(WINDOW_HEIGHT  - 100);
 	//player->SetPos(DataMgr->data->gameS_posX, DataMgr->data->gameS_posY);
 	player->SetPos(0, 0);
 	DataMgr->ChangeNameToString();

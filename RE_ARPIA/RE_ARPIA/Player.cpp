@@ -95,12 +95,12 @@ void Player::Physics(float eTime) {
 	if (isJump) {
 		this->AddPosY(-600 * eTime);
 	}
-	if (this->Pos().y > groundPosY - playerStop->Height() - 100) {
-		this->Pos().y = groundPosY - playerStop->Height() - 100; //100은 바닥 위치 고려
+	if (this->Pos().y > groundPosY - playerStop->Height()) {
+		this->Pos().y = groundPosY - playerStop->Height(); 
 		gravity = 0;
 		isJump = false;
 	}
-	if (this->Pos().y == groundPosY - playerStop->Height() - 100) {
+	if (this->Pos().y == groundPosY - playerStop->Height()) {
 		isGround = true;
 	}
 	else {
@@ -110,6 +110,10 @@ void Player::Physics(float eTime) {
 
 void Player::SetGround(float posY) {
 	groundPosY = posY;
+}
+
+float Player::GetGround() {
+	return groundPosY;
 }
 
 void Player::SetObjectPos() {

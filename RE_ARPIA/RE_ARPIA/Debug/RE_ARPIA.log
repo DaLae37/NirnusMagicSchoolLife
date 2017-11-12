@@ -1,5 +1,16 @@
-﻿  tutorialScene.cpp
+﻿  gameScene_maleToilet3.cpp
+  gameScene_maleToilet2.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  tutorialScene.cpp
 d:\temp\2017digitalcontents_rearpia\re_arpia\re_arpia\tutorialscene.cpp(138): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오.
+  gameScene_maleToilet1.cpp
+  gameScene_femaleToilet3.cpp
+  gameScene_femaleToilet2.cpp
+  gameScene_femaleToilet1.cpp
+  gameScene.cpp
+  WinMain.cpp
+  코드를 생성하고 있습니다...
   RE_ARPIA.vcxproj -> D:\temp\2017DigitalContents_ReARPIA\RE_ARPIA\Debug\RE_ARPIA.exe
   RE_ARPIA.vcxproj -> D:\temp\2017DigitalContents_ReARPIA\RE_ARPIA\Debug\RE_ARPIA.pdb (Full PDB)

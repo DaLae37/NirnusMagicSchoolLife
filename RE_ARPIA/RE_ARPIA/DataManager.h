@@ -26,7 +26,7 @@ public :
 		isMale = ref.isMale;
 		isSettingGender = ref.isSettingGender;
 
-		strcmp(name, ref.name);
+		strcpy(name, ref.name);
 		isSettingName = ref.isSettingName;
 
 		currentFloor = ref.currentFloor;
