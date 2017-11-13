@@ -4,7 +4,7 @@
 Dialogue::Dialogue()
 {
 	in = new ifstream(route);
-	font = new ZeroFont(100,"");
+	font = new ZeroFont(100	,"");
 }
 
 Dialogue::~Dialogue()

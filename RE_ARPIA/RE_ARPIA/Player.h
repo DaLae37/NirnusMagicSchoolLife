@@ -34,6 +34,8 @@ public:
 	void SetObjectPos(); //스프라이트의 위치를 클래스의 값과 맞춰줌
 	void SetGround(float posY); //캐릭터의 그라운드 위치를 설정 예) 층이 바뀔 때
 	float GetGround(); //캐릭터의 그라운드 위치를 가져옴
+	void SetIsGround(bool _isGround);
+	bool GetIsGround();
 
 	PlayerStatues statue;
 

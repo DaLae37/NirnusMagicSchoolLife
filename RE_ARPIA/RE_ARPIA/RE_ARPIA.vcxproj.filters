@@ -117,6 +117,9 @@
     <ClCompile Include="gameScene_dungeon.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainScene.h">
@@ -177,6 +180,9 @@
       <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
     </ClInclude>
     <ClInclude Include="gameScene_dungeon.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

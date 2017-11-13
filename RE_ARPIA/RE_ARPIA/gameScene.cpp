@@ -100,7 +100,7 @@ void gameScene::PortalEffect() {
 
 void gameScene::TakePortal() {
 	bool office = false, maleToilet = false, femaleToilet = false, _classPortal = false;
-	if (ZeroInputMgr->GetKey(VK_UP) == INPUTMGR_KEYDOWN) {
+	if (ZeroInputMgr->GetKey(VK_UP) == INPUTMGR_KEYDOWN && player->GetIsGround()) {
 		for (int i = 0; i < 6; i++) {
 			if (i < 1) {
 				if (officePortal[i]->IsOverlapped(player->playerStop)) {

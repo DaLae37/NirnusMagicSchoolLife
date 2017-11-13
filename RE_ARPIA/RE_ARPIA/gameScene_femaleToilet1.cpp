@@ -9,9 +9,9 @@ gameScene_femaleToilet1::gameScene_femaleToilet1()
 	background = new ZeroSprite("Resource/gameScene_toilet/female_toilet.png");
 	background->SetPosX(WINDOW_WIDTH - background->Width());
 	portal1 = new ZeroSprite("Resource/gameScene_toilet/monster.png");
-	portal1->SetPos(500, 100);
+	portal1->SetPos(-160, 350);
 	portal2 = new ZeroSprite("Resource/gameScene_toilet/monster.png");
-	portal2->SetPos(1000, 100);
+	portal2->SetPos(800, 350);
 
 	player->SetGround(WINDOW_HEIGHT - floor->Height());
 	player->SetPos(-160, player->GetGround());

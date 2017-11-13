@@ -3,6 +3,7 @@
 
 gameScene_dungeon::gameScene_dungeon()
 {
+	mon = new Monster();
 }
 
 gameScene_dungeon::~gameScene_dungeon()
@@ -15,4 +16,5 @@ void gameScene_dungeon::Update(float eTime) {
 
 void gameScene_dungeon::Render() {
 	ZeroIScene::Render();
+	mon->Render();
 }

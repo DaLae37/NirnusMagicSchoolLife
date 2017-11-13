@@ -93,7 +93,7 @@ void Player::Physics(float eTime) {
 	gravity += 9.8f * 1.5f;
 	this->AddPosY(gravity * eTime);
 	if (isJump) {
-		this->AddPosY(-600 * eTime);
+		this->AddPosY(-500 * eTime);
 	}
 	if (this->Pos().y > groundPosY - playerStop->Height()) {
 		this->Pos().y = groundPosY - playerStop->Height(); 
@@ -114,6 +114,14 @@ void Player::SetGround(float posY) {
 
 float Player::GetGround() {
 	return groundPosY;
+}
+
+void Player::SetIsGround(bool _isGround) {
+	isGround = _isGround;
+}
+
+bool Player::GetIsGround() {
+	return isGround;
 }
 
 void Player::SetObjectPos() {

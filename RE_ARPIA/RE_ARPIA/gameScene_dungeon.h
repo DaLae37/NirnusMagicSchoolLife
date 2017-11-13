@@ -4,7 +4,7 @@
 #include "ZeroSceneManager.h"
 
 #include "Player.h"
-
+#include "Monster.h"
 class gameScene_dungeon : public ZeroIScene
 {
 public:
@@ -12,4 +12,5 @@ public:
 	~gameScene_dungeon();
 	void Update(float eTime);
 	void Render();
+	Monster *mon;
 };
