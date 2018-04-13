@@ -15,11 +15,14 @@ public:
 
 	bool isYes; //Yes가 선택되었는지 아닌지를 판별
 	bool isSelected; //Yes 또는 No 버튼이 눌렸는지를 판별
+	bool isSave;
 
 	static PopUp* instance();
 
 	ZeroSprite *popUP;
 	ZeroSprite *yes;
 	ZeroSprite *no;
+
+	ZeroSprite *saveExit;
 };
 

@@ -5,6 +5,7 @@
 #include "ZeroSceneManager.h"
 #include "ZeroCameraManager.h"
 
+#include "Monster.h"
 #include "gameScene.h"
 #include "gameScene_dungeon.h"
 #include "Player.h"
@@ -23,4 +24,11 @@ public:
 
 	ZeroSprite *portal1;
 	ZeroSprite *portal2;
+
+	Monster *thirdStoryMonster;
+
+	ZeroSprite *panel;
+	ZeroFont *thirdStorytext[2];
+
+	ZeroFont *fiveStorytext;
 };

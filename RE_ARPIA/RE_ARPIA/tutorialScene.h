@@ -24,19 +24,27 @@ public:
 	~SettingNamePanel();
 	void Update(float eTime);
 	void Render();
-
+	ZeroSprite *background;
 	ZeroFont *nameFont;
 	string tmpName;
 };
 
 class tutorialScene : public ZeroIScene
 {
+private :
+	bool isDialogue;
+	int index;
 public:
 	tutorialScene();
 	~tutorialScene();
 	void Update(float eTime);
 	void Render();
 
+	void FontSetting();
+
 	SettingGenderPanel *GenderPanel;
 	SettingNamePanel *NamePanel;
+	ZeroFont *text[5];
+	ZeroSprite *panel;
+	ZeroSprite *background;
 };

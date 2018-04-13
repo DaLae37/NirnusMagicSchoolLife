@@ -23,5 +23,12 @@ public:
 
 	ZeroSprite *portal1;
 	ZeroSprite *portal2;
-};
 
+
+	Monster *thirdStoryMonster;
+
+	ZeroSprite *panel;
+	ZeroFont *thirdStorytext[2];
+
+	ZeroFont *fiveStorytext;
+};

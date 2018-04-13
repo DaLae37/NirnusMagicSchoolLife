@@ -8,13 +8,10 @@ gameScene_maleToilet2::gameScene_maleToilet2()
 
 	background = new ZeroSprite("Resource/gameScene_toilet/male_toilet.png");
 	background->SetPosX(WINDOW_WIDTH - background->Width());
-	portal1 = new ZeroSprite("Resource/gameScene_toilet/monster.png");
-	portal1->SetPos(500, 100);
-	portal2 = new ZeroSprite("Resource/gameScene_toilet/monster.png");
-	portal2->SetPos(1000, 100);
+	portal1 = new ZeroSprite("Resource/Portal/Portal.png");
+	portal1->SetPos(830, 540);
 
 	player->SetGround(WINDOW_HEIGHT - floor->Height());
-	player->SetPos(825, player->GetGround());
 }
 
 gameScene_maleToilet2::~gameScene_maleToilet2()
@@ -30,10 +27,6 @@ void gameScene_maleToilet2::Update(float eTime) {
 			ZeroSceneMgr->ChangeScene(new gameScene());
 			return;
 		}
-		else if (portal2->IsOverlapped(player->playerStop)) {
-			ZeroSceneMgr->ChangeScene(new gameScene_dungeon());
-			return;
-		}
 	}
 }
 
@@ -41,8 +34,8 @@ void gameScene_maleToilet2::Render() {
 	ZeroIScene::Render();
 	background->Render();
 	portal1->Render();
-	portal2->Render();
 	player->Render();
+	UIMgr->Render();
 }
 
 void gameScene_maleToilet2::PlayerUpdate(float eTime) {
@@ -57,7 +50,7 @@ void gameScene_maleToilet2::PlayerUpdate(float eTime) {
 }
 
 void gameScene_maleToilet2::SetCameraPos() {
-	ZeroCameraMgr->SetPos(player->Pos().x - WINDOW_WIDTH / 2, player->Pos().y - WINDOW_HEIGHT / 2); //카메라가 플레이어를 중앙에 두고 추적
+	ZeroCameraMgr->SetPos(player->Pos().x - WINDOW_WIDTH / 2, player->Pos().y - WINDOW_HEIGHT / 2 - UIMgr->box->Height()); //카메라가 플레이어를 중앙에 두고 추적
 
 																									//화면 밖에 카메라가 미치지 않도록 조정
 	if (ZeroCameraMgr->Pos().x > 0)

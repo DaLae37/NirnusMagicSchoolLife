@@ -114,11 +114,17 @@
     <ClCompile Include="gameScene_femaleToilet3.cpp">
       <Filter>소스 파일\Scene\gameScene\toilet</Filter>
     </ClCompile>
-    <ClCompile Include="gameScene_dungeon.cpp">
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="loadingScene.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="gameScene_dungeon.cpp">
+      <Filter>소스 파일\Scene\gameScene\dungeon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -179,10 +185,16 @@
     <ClInclude Include="gameScene_femaleToilet3.h">
       <Filter>헤더 파일\Scene\gameScene\toilet</Filter>
     </ClInclude>
-    <ClInclude Include="gameScene_dungeon.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Monster.h">
+      <Filter>헤더 파일\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene_dungeon.h">
+      <Filter>헤더 파일\Scene\gameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="loadingScene.h">
+      <Filter>헤더 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

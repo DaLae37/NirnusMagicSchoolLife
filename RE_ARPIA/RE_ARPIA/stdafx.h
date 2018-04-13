@@ -35,3 +35,5 @@
 
 #include "DataManager.h"
 #include "PopUp.h"
+#include "ZeroSoundManager.h"
+#include "UI.h"

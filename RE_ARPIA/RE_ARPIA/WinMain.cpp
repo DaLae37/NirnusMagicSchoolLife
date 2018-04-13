@@ -2,12 +2,10 @@
 #include <Windows.h>
 #include <Zero.h>
 #include "ZeroConsole.h"
-#include "tutorialScene.h"
-#include "gameScene.h"
-#include "gameScene_dungeon.h"
 
+#include "loadingScene.h"
 //이 변수를 주석처리하면 콘솔창 안뜬다.
-ZeroConsole g_Console;
+//ZeroConsole g_Console;
 
 INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 {
@@ -37,17 +35,7 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 
 		DataMgr->Load();
 
-
-		//여기서 처음 시작하는 Scene을 정한다
-		/*if (!DataMgr->data.isSettingGender || !DataMgr->data.isSettingName)
-			ZeroSceneMgr->ChangeScene(new tutorialScene());
-		else {
-			switch (DataMgr->data.currentScene) {
-			case 0:
-				ZeroSceneMgr->ChangeScene(new gameScene());
-				break;
-			}*/
-		ZeroSceneMgr->ChangeScene(new gameScene_dungeon());
+		ZeroSceneMgr->ChangeScene(new loadingScene());
 
 
 		MSG msg;

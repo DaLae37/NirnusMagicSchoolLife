@@ -22,5 +22,4 @@ public:
 	ZeroSprite *floor;
 
 	ZeroSprite *portal1;
-	ZeroSprite *portal2;
 };
