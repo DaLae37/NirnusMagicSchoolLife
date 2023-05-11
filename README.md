@@ -8,7 +8,7 @@
 
 ![엔진](https://www.dalae37.com/project/resource/image/ZeroEngine.webp)
 
-![FMOD](https://www.fmod.com/assets/fmod-logo.svg){: background-color: #000000}
+<img src="https://www.fmod.com/assets/fmod-logo.svg" title="FMOD" style="background-color:black;"/>
 
 # 기타
 
