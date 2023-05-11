@@ -8,10 +8,10 @@
 
 ![엔진](https://www.dalae37.com/project/resource/image/ZeroEngine.webp)
 
-![FMOD](https://www.fmod.com/assets/fmod-logo.svg){background-color:black}
+![FMOD](https://www.fmod.com/assets/fmod-logo.svg){: background-color: #000000}
 
 # 기타
 
-[유튜브]()
+[유튜브](https://youtu.be/OZJGQs3KwNk)
 
 [보고서]()
